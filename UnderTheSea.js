@@ -9,7 +9,7 @@ fetch("https://discord.com/api/v9/users/@me/settings-proto/1", {
     "x-discord-locale": "en-US",
     "x-super-properties": ""
   },
-  "referrer": "https://discord.com/channels/@me/1078470044339679265",
+  "referrer": "https://discord.com/channels/@me/",
   "referrerPolicy": "strict-origin-when-cross-origin",
   "body": "{\"settings\":\"agoIARABGgQSAggP\"}",
   "method": "PATCH",
