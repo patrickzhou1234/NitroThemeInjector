@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  try to take over the world!
-// @author       Patrick
+// @author       You
 // @match        https://discord.com/channels/@me
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=discord.com
 // @grant        none
@@ -12,40 +12,47 @@
 var themecodeArr = ["aggIAhABGgISAA==", 'agoIAhABGgQSAggB', 'agoIAhABGgQSAggC', 'agoIAhABGgQSAggD', 'agoIAhABGgQSAggE', 'agoIAhABGgQSAggF', 'agoIAhABGgQSAggG', 'agoIAhABGgQSAggH', 'agoIARABGgQSAggI', 'agoIARABGgQSAggJ', 'agoIARABGgQSAggK', 'agoIARABGgQSAggL', 'agoIARABGgQSAggM', 'agoIARABGgQSAggN', 'agoIARABGgQSAggO', 'agoIARABGgQSAggP'];
 var injectHTML = '<div class="marginTop8-24uXGp"><h3 class="h5-2feg8J eyebrow-2wJAoF defaultMarginh5-3THN2O" id=":r7:"><div class="themeTitle-3WIti0"><div class="title-1zhWh6">Theme</div><button type="button" class="button-ejjZWC lookFilled-1H2Jvj colorBrand-2M3O3N sizeMedium-2oH5mg grow-2T4nbg"><div class="contents-3NembX">Preview Themes</div></button></div></h3><div><div role="radiogroup" aria-labelledby="uid_162" aria-orientation="horizontal" aria-disabled="false"><section class="presets-2zm9Ir basicThemeSelectors-2wNKs6"><div class="themeSelectionContainer-3nGXK9"><div class="themeSelection-2u4ce0 defaultThemeSelection-2M_3x4 lightIcon-3JRYvU" aria-label="Light" role="radio" tabindex="-1" aria-checked="false"></div></div><div class="themeSelectionContainer-3nGXK9"><div class="themeSelection-2u4ce0 selected-2FbEJt defaultThemeSelection-2M_3x4 darkIcon-e6uv7V" aria-label="Dark" role="radio" tabindex="0" aria-checked="true"></div><div class="selectionCircle-3s5Uex"><svg class="checkmarkCircle-2LCcdI" aria-hidden="true" role="img" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle r="8" cx="12" cy="12" fill="var(--white-500)"></circle><g fill="none" fill-rule="evenodd"><path class="checkmark-1RtODZ" fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path></g></svg></div></div><div class="themeSelectionContainer-3nGXK9"><div class="themeSelection-2u4ce0 defaultThemeSelection-2M_3x4 darkIcon-e6uv7V" aria-label="Sync with computer" role="radio" tabindex="-1" aria-checked="false"><div class="iconWrapper-1EIGUS"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24" height="24" viewBox="0 0 24 24" fill="var(--white-500)"><g id="Frame_-_24px"><rect y="0" fill="none" width="24" height="24"></rect></g><g id="Filled_Icons"><g><path fill="var(--white-500)" d="M6.351,6.351C7.824,4.871,9.828,4,12,4c4.411,0,8,3.589,8,8h2c0-5.515-4.486-10-10-10 C9.285,2,6.779,3.089,4.938,4.938L3,3v6h6L6.351,6.351z"></path><path fill="var(--white-500)" d="M17.649,17.649C16.176,19.129,14.173,20,12,20c-4.411,0-8-3.589-8-8H2c0,5.515,4.486,10,10,10 c2.716,0,5.221-1.089,7.062-2.938L21,21v-6h-6L17.649,17.649z"></path></g></g></svg></div></div></div></section><section><div class="header-LaudvZ"><div class="headings-1UkJbq"><div class="title-1ezOSD"><h3 class="defaultColor-1EVLSt text-md-medium-2n7Vn5 defaultColor-1GKx81" aria-label="Color" data-text-variant="text-md/medium">Color</h3><div class="" aria-label="Exclusive to Nitro" role="button" tabindex="0"><svg class="nitroWheel-21E85D premiumIcon-U0EQSY" aria-hidden="true" role="img" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M2.98966977,9.35789159 C2.98966977,9.77582472 2.63442946,10.1240466 2.20807287,10.1240466 L1.78171628,10.1240466 C1.35535969,10.1240466 0.999948837,9.77582472 0.999948837,9.35789159 C0.999948837,8.93995846 1.35535969,8.59173658 1.78171628,8.59173658 L2.20807287,8.59173658 C2.63442946,8.59173658 2.98966977,8.93995846 2.98966977,9.35789159 Z M22.2467643,9.14892503 C24.0942527,12.9800344 22.3888264,17.5772989 18.3384388,19.3882867 C14.4302837,21.1297305 9.74036124,19.457998 7.9638186,15.6268886 C7.60857829,14.8607335 7.3954,14.0248673 7.32428372,13.189001 L5.76091938,13.189001 C5.33456279,13.189001 4.97932248,12.840612 4.97932248,12.4226788 C4.97932248,12.0047457 5.33456279,11.6565238 5.76091938,11.6565238 L8.03493488,11.6565238 C8.46129147,11.6565238 8.81653178,11.3083019 8.81653178,10.8903688 C8.81653178,10.4724357 8.46129147,10.1240466 8.03493488,10.1240466 L4.41090388,10.1240466 C3.98454729,10.1240466 3.62913643,9.77582472 3.62913643,9.35789159 C3.62913643,8.93995846 3.98454729,8.59173658 4.41090388,8.59173658 L9.45606667,8.59173658 C9.88242326,8.59173658 10.2376636,8.24334752 10.2376636,7.82541439 C10.2376636,7.40748126 9.88242326,7.05925937 9.45606667,7.05925937 L7.3954,7.05925937 C6.75586512,7.05925937 6.18727597,6.57161499 6.18727597,5.87517123 C6.18727597,5.24827153 6.68474884,4.69091591 7.3954,4.69091591 L15.4250589,4.69091591 C18.267493,4.8303384 20.9676946,6.43235968 22.2467643,9.14892503 Z M13.2662961,8.38056332 C11.0193969,9.3919615 10.0341721,11.9973566 11.065955,14.1998642 C12.097738,16.4023718 14.755645,17.3681317 17.0025442,16.3567335 C19.249614,15.3453354 20.2346682,12.7399402 19.2028853,10.5374326 C18.1711023,8.33492503 15.5131953,7.36916515 13.2662961,8.38056332 Z M16.8462589,9.84548582 L18.2673907,12.2138293 C18.338507,12.3530846 18.338507,12.4227958 18.2673907,12.5620512 L16.8462589,14.9303946 C16.7751426,15.0696499 16.6330806,15.0696499 16.5619643,15.0696499 L13.7906465,15.0696499 C13.6485845,15.0696499 13.5774682,14.9999387 13.5065225,14.9303946 L12.0852202,12.5620512 C12.0142744,12.4227958 12.0142744,12.3530846 12.0852202,12.2138293 L13.5065225,9.84548582 C13.5774682,9.7062305 13.7197008,9.7062305 13.7906465,9.7062305 L16.5619643,9.7062305 C16.7041969,9.63651925 16.7751426,9.7062305 16.8462589,9.84548582 Z"></path></svg></div><div class="betaTagContainer-1JbzxP" aria-label="Color Themes are currently in beta and not all surfaces will be themed." role="button" tabindex="0"><div class="betaTag-3eRHW2 textBadge-1fdDPJ base-3IDx3L eyebrow-132Xza baseShapeRound-3epLEv" aria-label="Color Themes are currently in beta and not all surfaces will be themed." style="background-color: var(--brand-500);">Beta</div></div></div><h3 class="defaultColor-1EVLSt text-sm-normal-AEQz4v defaultColor-1GKx81" data-text-variant="text-sm/normal">Make Discord yours. Only with Nitro.</h3></div></div><div class="presets-2zm9Ir"><div class="themeSelectionContainer-3nGXK9"><div class="themeSelection-2u4ce0 lightOverlay-3UweYE" aria-label="Mint Apple" role="radio" tabindex="0" aria-checked="false" style="background: var(--bg-overlay), linear-gradient(180deg, var(--bg-gradient-mint-apple-1) 6.15%, var(--bg-gradient-mint-apple-2) 48.7%, var(--bg-gradient-mint-apple-3) 93.07%);"></div></div><div class="themeSelectionContainer-3nGXK9"><div class="themeSelection-2u4ce0 lightOverlay-3UweYE" aria-label="Citrus Sherbert" role="radio" tabindex="-1" aria-checked="false" style="background: var(--bg-overlay), linear-gradient(180deg, var(--bg-gradient-citrus-sherbert-1) 31.1%, var(--bg-gradient-citrus-sherbert-2) 67.09%);"></div></div><div class="themeSelectionContainer-3nGXK9"><div class="themeSelection-2u4ce0 lightOverlay-3UweYE" aria-label="Retro Raincloud" role="radio" tabindex="-1" aria-checked="false" style="background: var(--bg-overlay), linear-gradient(148.71deg, var(--bg-gradient-retro-raincloud-1) 5.64%, var(--bg-gradient-retro-raincloud-2) 26.38%, var(--bg-gradient-retro-raincloud-2) 49.92%, var(--bg-gradient-retro-raincloud-1) 73.12%);"></div></div><div class="themeSelectionContainer-3nGXK9"><div class="themeSelection-2u4ce0 lightOverlay-3UweYE" aria-label="Hanami" role="radio" tabindex="-1" aria-checked="false" style="background: var(--bg-overlay), linear-gradient(38.08deg, var(--bg-gradient-hanami-1) 3.56%, var(--bg-gradient-hanami-2) 35.49%, var(--bg-gradient-hanami-3) 68.78%);"></div></div><div class="themeSelectionContainer-3nGXK9"><div class="themeSelection-2u4ce0 lightOverlay-3UweYE" aria-label="Sunrise" role="radio" tabindex="-1" aria-checked="false" style="background: var(--bg-overlay), linear-gradient(154.19deg, var(--bg-gradient-sunrise-1) 8.62%, var(--bg-gradient-sunrise-2) 48.07%, var(--bg-gradient-sunrise-3) 76.04%);"></div></div><div class="themeSelectionContainer-3nGXK9"><div class="themeSelection-2u4ce0 lightOverlay-3UweYE" aria-label="Cotton Candy" role="radio" tabindex="-1" aria-checked="false" style="background: var(--bg-overlay), linear-gradient(180.14deg, var(--bg-gradient-cotton-candy-1) 8.5%, var(--bg-gradient-cotton-candy-2) 94.28%);"></div></div><div class="themeSelectionContainer-3nGXK9"><div class="themeSelection-2u4ce0 lightOverlay-3UweYE" aria-label="LoFi Vibes" role="radio" tabindex="-1" aria-checked="false" style="background: var(--bg-overlay), linear-gradient(179.52deg, var(--bg-gradient-lofi-vibes-1) 7.08%, var(--bg-gradient-lofi-vibes-2) 34.94%, var(--bg-gradient-lofi-vibes-3) 65.12%, var(--bg-gradient-lofi-vibes-4) 96.23%);"></div></div><div class="themeSelectionContainer-3nGXK9"><div class="themeSelection-2u4ce0 lightOverlay-3UweYE" aria-label="Desert Khaki" role="radio" tabindex="-1" aria-checked="false" style="background: var(--bg-overlay), linear-gradient(38.99deg, var(--bg-gradient-desert-khaki-1) 12.92%, var(--bg-gradient-desert-khaki-2) 32.92%, var(--bg-gradient-desert-khaki-3) 52.11%);"></div></div><div class="themeSelectionContainer-3nGXK9"><div class="themeSelection-2u4ce0 darkOverlay-2AcGHh" aria-label="Sunset" role="radio" tabindex="-1" aria-checked="false" style="background: var(--bg-overlay), linear-gradient(141.68deg, var(--bg-gradient-sunset-1) 27.57%, var(--bg-gradient-sunset-2) 71.25%);"></div></div><div class="themeSelectionContainer-3nGXK9"><div class="themeSelection-2u4ce0 darkOverlay-2AcGHh" aria-label="Chroma Glow" role="radio" tabindex="-1" aria-checked="false" style="background: var(--bg-overlay), linear-gradient(128.92deg, var(--bg-gradient-chroma-glow-1) 3.94%, var(--bg-gradient-chroma-glow-2) 26.1%, var(--bg-gradient-chroma-glow-3) 39.82%, var(--bg-gradient-chroma-glow-4) 56.89%, var(--bg-gradient-chroma-glow-5) 76.45%);"></div></div><div class="themeSelectionContainer-3nGXK9"><div class="themeSelection-2u4ce0 darkOverlay-2AcGHh" aria-label="Forest" role="radio" tabindex="-1" aria-checked="false" style="background: var(--bg-overlay), linear-gradient(162.27deg, var(--bg-gradient-forest-1) 11.2%, var(--bg-gradient-forest-2) 29.93%, var(--bg-gradient-forest-3) 48.64%, var(--bg-gradient-forest-4) 67.85%, var(--bg-gradient-forest-5) 83.54%);"></div></div><div class="themeSelectionContainer-3nGXK9"><div class="themeSelection-2u4ce0 darkOverlay-2AcGHh" aria-label="Crimson Moon" role="radio" tabindex="-1" aria-checked="false" style="background: var(--bg-overlay), linear-gradient(64.92deg, var(--bg-gradient-crimson-moon-1) 16.17%, var(--bg-gradient-crimson-moon-2) 72%);"></div></div><div class="themeSelectionContainer-3nGXK9"><div class="themeSelection-2u4ce0 darkOverlay-2AcGHh" aria-label="Midnight Blurple" role="radio" tabindex="-1" aria-checked="false" style="background: var(--bg-overlay), linear-gradient(48.17deg, var(--bg-gradient-midnight-blurple-1) 11.21%, var(--bg-gradient-midnight-blurple-2) 61.92%);"></div></div><div class="themeSelectionContainer-3nGXK9"><div class="themeSelection-2u4ce0 darkOverlay-2AcGHh" aria-label="Mars" role="radio" tabindex="-1" aria-checked="false" style="background: var(--bg-overlay), linear-gradient(170.82deg, var(--bg-gradient-mars-1) 14.61%, var(--bg-gradient-mars-2) 74.62%);"></div></div><div class="themeSelectionContainer-3nGXK9"><div class="themeSelection-2u4ce0 darkOverlay-2AcGHh" aria-label="Dusk" role="radio" tabindex="-1" aria-checked="false" style="background: var(--bg-overlay), linear-gradient(180deg, var(--bg-gradient-dusk-1) 12.84%, var(--bg-gradient-dusk-2) 85.99%);"></div></div><div class="themeSelectionContainer-3nGXK9"><div class="themeSelection-2u4ce0 darkOverlay-2AcGHh" aria-label="Under the Sea" role="radio" tabindex="-1" aria-checked="false" style="background: var(--bg-overlay), linear-gradient(179.14deg, var(--bg-gradient-under-the-sea-1) 1.91%, var(--bg-gradient-under-the-sea-2) 48.99%, var(--bg-gradient-under-the-sea-3) 96.35%);"></div></div></div></section></div><div class="divider-3nqZNm marginTop20-2T8ZJx"></div></div><div class="container-31PmuA marginTop20-2T8ZJx disabled-1q7TMn"><div class="labelRow-NnoUIp"><label for=":r8:" class="title-2yADjX">Dark Sidebar</label><div class="control-10qYax"><div class="container-1QtPKm default-colors disabled-3_3z1m" style="opacity: 0.3; background-color: rgb(128, 132, 142);"><svg class="slider-HJFN2i" viewBox="0 0 28 20" preserveAspectRatio="xMinYMid meet" aria-hidden="true" style="left: -3px;"><rect fill="white" x="4" y="0" height="20" width="20" rx="10"></rect><svg viewBox="0 0 20 20" fill="none"><path fill="rgba(128, 132, 142, 1)" d="M5.13231 6.72963L6.7233 5.13864L14.855 13.2704L13.264 14.8614L5.13231 6.72963Z"></path><path fill="rgba(128, 132, 142, 1)" d="M13.2704 5.13864L14.8614 6.72963L6.72963 14.8614L5.13864 13.2704L13.2704 5.13864Z"></path></svg></svg><input id=":r8:" type="checkbox" class="input-125oad" tabindex="-1" disabled=""></div></div></div><div class="divider-3nqZNm dividerDefault-wIfHHD"></div></div></div>';
 document.querySelectorAll(".themeSelectionContainer-3nGXK9").forEach((el) => {
-   el.remove();
+  el.remove();
 });
 document.querySelectorAll(".children-2C96Ex")[0].innerHTML += injectHTML;
 var i;
 var themeEl = document.querySelectorAll(".themeSelectionContainer-3nGXK9");
 document.querySelectorAll(".themeSelectionContainer-3nGXK9").forEach((el) => {
-      el.onclick = () => {
-        for (i = 3; i < themeEl.length; i++) {
-          if (themeEl[i].isEqualNode(el)) {
-            fetch("https://discord.com/api/v9/users/@me/settings-proto/1", {
-              "headers": {
-                "authorization": (webpackChunkdiscord_app.push([
-                  [""], {},
-                  t => {
-                    for (let e in m = [], t.c) m.push(t.c[e])
-                  }
-                ]), m).find(t => t?.exports?.default?.getToken !== void 0).exports.default.getToken(),
-                "content-type": "application/json",
-                "sec-ch-ua": "\"Google Chrome\";v=\"111\", \"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"111\"",
-                "sec-ch-ua-mobile": "?0",
-                "sec-ch-ua-platform": "\"Windows\"",
-                "x-debug-options": "bugReporterEnabled",
-                "x-discord-locale": "en-US",
-                "x-super-properties": ""
-              },
-              "referrer": "https://discord.com/channels/@me/",
-              "referrerPolicy": "strict-origin-when-cross-origin",
-              "body": `{\"settings\":\"${themecodeArr[i-3]}\"}`,
-              "method": "PATCH",
-              "mode": "cors",
-              "credentials": "include"
-            });
-              break;
+  el.onclick = () => {
+    for (i = 3; i < themeEl.length; i++) {
+      if (themeEl[i].isEqualNode(el)) {
+        fetch("https://discord.com/api/v9/users/@me/settings-proto/1", {
+          "headers": {
+            "authorization": (webpackChunkdiscord_app.push([
+              [""], {},
+              t => {
+                for (let e in m = [], t.c) m.push(t.c[e])
+              }
+            ]), m).find(t => t?.exports?.default?.getToken !== void 0).exports.default.getToken(),
+            "content-type": "application/json",
+            "sec-ch-ua": "\"Google Chrome\";v=\"111\", \"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"111\"",
+            "sec-ch-ua-mobile": "?0",
+            "sec-ch-ua-platform": "\"Windows\"",
+            "x-debug-options": "bugReporterEnabled",
+            "x-discord-locale": "en-US",
+            "x-super-properties": ""
+          },
+          "referrer": "https://discord.com/channels/@me/",
+          "referrerPolicy": "strict-origin-when-cross-origin",
+          "body": `{\"settings\":\"${themecodeArr[i-3]}\"}`,
+          "method": "PATCH",
+          "mode": "cors",
+          "credentials": "include"
+        }).then((response) => {
+          if (response.status == 200) {
+            alert("success");
           }
-        }
+          if (response.status == 429) {
+            alert("too many requests");
+          }
+        });
+        break;
       }
+    }
+  }
 });
